@@ -8,7 +8,7 @@ function turnplate() {
 
     this.init = function(num) {
         this.drawTurnplate(num);
-        // this.drawTrianglePointer();
+        this.drawTrianglePointer();
     }
 
     this.drawTrianglePointer = function() {
@@ -70,7 +70,7 @@ function turnplate() {
         var halfItemWidth = Math.tan(itemAngle / 2) * itemHight;
         //
         /**
-         * 存放转盘三角形子块的数组
+         * 存放转盘三角形子块的数组,没必要
          * @type {Array}
          */
         var triangles  = [];
@@ -91,15 +91,17 @@ function turnplate() {
 
         initItem.appendChild(img);
         initItem.appendChild(p);
-        console.log(initItem);
+        // console.log(initItem);
 
         // @TODO 这里得处理一下 类似于奇数份的问题
 
-        var style = initItem.style;
-        style.borderLeftWidth = halfItemWidth ;
-        style.borderRightWidth = halfItemWidth ;
-        style.borderTopColor = '#eee';
-        style.left = turnplateRadius - halfItemWidth + 'px';
+
+        initItem.style.borderLeftWidth = halfItemWidth + 'px';
+        initItem.style.borderRightWidth = halfItemWidth + 'px';
+        initItem.style.borderTopColor = '#eee';
+
+        // @FIXME 这里的值不对
+        initItem.style.left = turnplateRadius - halfItemWidth + 'px';
 
         // 制造其他三角形子块，并旋转 itemAngle 度
         for ( var i = 0 ; i < count ; i ++ ) {
@@ -113,11 +115,16 @@ function turnplate() {
             div.id = 'triangle' + i;
             div.style.borderLeftWidth = halfItemWidth;
             div.style.borderRightWidth = halfItemWidth;
-            div.style.transform = 'rotate(' + itemAngle * 57.3 * (i) +'deg)';
-            div.style.borderTopColor = (i + 1) % 2 == 0 ? '#888' : '#fff';
+            div.style.transform = 'rotate(' + itemAngle * 57.3 * i +'deg)';
+            console.log(div.style.transform);
+            div.style.borderTopColor = (i + 1) % 2 == 0 ? '#888' : '#222';
             turnplate.appendChild(div);
         }
+        // triangles[1].style.zIndex = 1;
         this.turnplate.id = 'turnplate';
+        // var p = document.createElement('p')
+        // p.innerHTML = "中"
+        // this.turnplate.appendChild(p)
         this.container.appendChild(this.turnplate);
         // triangles[19].innerHTML = '测试';
     };

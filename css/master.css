@@ -20,7 +20,7 @@
     left: 40px;
     top: 40px;
     z-index: 50;
-    border-bottom: 150px #000 solid;
+    border-bottom: 150px #f00 solid;
     border-left: 10px transparent solid;
     border-right: 10px transparent solid;
 }
@@ -31,7 +31,7 @@
     position: absolute;
     height: 400px;
     width: 400px;
-    border: #000 1px solid;
+    /*border: #000 1px solid;*/
     border-radius: 50%;
     overflow: hidden;
     transition: transform 6s;
@@ -43,6 +43,7 @@
     height: 0;
     position: absolute;
     color: #000;
+    /*top: 1;*/
     border-top: 200px #fff solid;
     border-left: 50px transparent solid;
     border-right: 50px transparent solid;
