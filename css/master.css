@@ -1,0 +1,23 @@
+
+#turnplate {
+    position: relative;
+    height: 400px;
+    width: 400px;
+    border: #000 1px solid;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: transform 6s;
+    transform-origin: 50% 50%;
+
+}
+.initItem {
+    width: 0;
+    height: 0;
+    position: absolute;
+    color: #000;
+    border-top: 200px #fff solid;
+    border-left: 50px transparent solid;
+    border-right: 50px transparent solid;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+}
