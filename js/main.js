@@ -34,6 +34,8 @@
          */
         turnplate : document.createElement('div'),
 
+        degree : 0,
+
         /**
          * 初始化函数
          * @param  {String} [id='turnplateContainer'] 转盘容器的 id
@@ -71,9 +73,9 @@
              * 转盘的块数
              * @type {Number}
              */
-            this.count       = 12;
+            this.count       = 20;
 
-            this.names       = ['一等奖','二等奖','二等奖','二等奖','二等奖','二等奖'];
+            this.names       = ['一等奖','二等奖','二等奖','二等奖','二等奖','二等奖','二等奖','二等奖','二等奖','二等奖','二等奖'];
             // this.imgs        = [];
             // this.bgColors     = [];
             // this.surpluses   = [];
@@ -196,7 +198,6 @@
             }else {
              this.luckyAndGold = Math.ceil(randomNum / 5);
             }
-            console.log('luckyAndGold' + this.luckyAndGold);
 
             return this.luckyAndGold;
         },
@@ -206,10 +207,9 @@
           * @return {void}
           */
          fisrtRotationForce : function() {
-             var luckyAndGold = tp.godGiveYouLuckyAndGold();
-             console.log(luckyAndGold);
-             var deg = 3600 + ( ( 360 / 20 ) * luckyAndGold );
-             console.log(this);
+             var luckyAndGold = this.godGiveYouLuckyAndGold();
+            //  luckyAndGold = 0;
+             this.degree = 3600 + ( ( 360 / 20 ) * luckyAndGold );
              function theGraceOfGod(grace){
                  alert(grace);
              }
@@ -220,12 +220,21 @@
             // 参见：<a herf="http://www.cnblogs.com/leon2016/p/5932061.html">链接<a>
             // 另参见：<a herf="http://www.jb51.net/article/40524.htm">链接<a>
             window.setTimeout(function(){
-                alert(luckyAndGold);
+                if( luckyAndGold == 0 ){
+                    alert('一等奖');
+                } else if( luckyAndGold % 2 == 0 ) {
+                    alert('二等奖');
+                } else {
+                    alert('三等奖');
+                }
+                // @TODO 下面的代码把转盘重置会初始位置
+                this.turnplate.fn.degree = 0;
+                this.turnplate.fn.turnplate.style.transform = 'rotate(' + this.turnplate.fn.degree + 'deg)';
             }, 6000)
             //  setTimeout( theGraceOfGod, 6000 , luckyAndGold );
-             this.turnplate.style.transform = 'rotate(' + deg + 'deg)';
+             this.turnplate.style.transform = 'rotate(' + this.degree + 'deg)';
+             console.log(this.degree);
          }
-
     },
 
     turnplate.fn.init.prototype = turnplate.fn;
