@@ -11,23 +11,28 @@ This project is to make a turnplate for lucky draw.
 my goal is that you can simplely using it as can as posible. **like:**
 
 ```javascript
-listOfItem = [
-    itemName: probability,
-    ...
-];
+var id = 'turnplateContainer';
+var data = [{   name    : 'String',
+                img     : 'String',
+                bgColor : 'String',
+                surplus : 10
+            },
+            {   name    : 'String1',
+                img     : 'String1',
+                bgColor : 'String1',
+                surplus : 11
+            }];
 
-config = {
+var config = {
     bgColor: [...],
     count: 10;// 转盘块数
     ...
 }
 
-new turnplate({
-    listOfItem,
-    config
-});
+new turnplate({ id, data, config });
 
 ```
 
 ## Future
-Maybe, I will implement it on `vue.js`.
++   Write with pure JS. NO dependece.
++   Maybe, I will implement it on `vue.js`.
