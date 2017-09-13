@@ -1,19 +1,8 @@
-// drawTurnplate(20);
 
-//
-// function test(){
-//
-// for( var i = 0 ; i < 10 ; i ++)
-//     godGiveYouLuckyAndGold();
-// }
-var tp = new turnplate();
-console.log(tp);
-tp.init(20);
+var data = {"first_prize":"5","second_prize":"25","third_prize":"30"};
 
-
-document.getElementById('btn').onclick = function() {
-    tp.rotate();
-}
-document.getElementById('pointer').onclick = function () {
-    tp.rotate();
-}
+var tp = turnplate('container', data );
+tp.drawTrianglePointer();
+tp.drawTurnplate();
+console.log('last');
+console.log(tp.lackAndGold);
