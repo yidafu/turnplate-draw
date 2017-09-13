@@ -6,6 +6,8 @@
 **   decribetion: ...                                                 **
 ************************************************************************
 ************************************************************************/
+
+
 /**
  * 参考 <a herf="http://www.cnblogs.com/coco1s/p/5261646.html">jquery 源码分析</a>
  * @param  {Object} window
@@ -40,16 +42,16 @@
          * 初始化函数
          * @param  {String} [id='turnplateContainer'] 转盘容器的 id
          * @param  {Array}  [data=[]]                 数据转盘显示数据，格式如下：
-         *                                                  [{name    : String,
-         *                                                    img     : String,
-         *                                                    bgColor : String,
-         *                                                    surplus : Number},
-         *                                                    ... ... ]
+        *                                                  [{name    : String,
+        *                                                    img     : String,
+        *                                                    bgColor : String,
+        *                                                    surplus : Number},
+        *                                                    ... ... ]
+         * @param  {Object} [config={}]               这个参数是配置转盘大小、可点次数、外观样式的、
+         *                                            位置设置 ... ...
          * @return {Object}                           返回转盘对象本身
          */
-        init: function (id = 'turnplateContainer', data = [] ) {
-
-
+        init: function (id = 'turnplateContainer', data = [], config = {} ) {
 
             /**
              * 最外层大容器
@@ -73,12 +75,28 @@
              * 转盘的块数
              * @type {Number}
              */
-            this.count       = 20;
+            this.count       = data.length;
 
-            this.names       = ['一等奖','二等奖','二等奖','二等奖','二等奖','二等奖','二等奖','二等奖','二等奖','二等奖','二等奖'];
-            // this.imgs        = [];
-            // this.bgColors     = [];
-            // this.surpluses   = [];
+            this.names       = [];
+            this.imgs        = [];
+            this.bgColors     = [];
+            this.surpluses   = [];
+
+            if( data.length > 0 ) {
+                for ( val in data ) {
+                    console.log(val);
+                    this.names.push( data[val].name );
+                }
+                for ( val in data ) {
+                    this.imgs.push( data[val].img );
+                }
+                for ( val in data ) {
+                    this.bgColors.push( data[val].bgColor );
+                }
+                for ( val in data ) {
+                    this.surpluses.push( data[val].surplus );
+                }
+            }
 
             return this;
         },
@@ -187,7 +205,7 @@
             var randomNum = parseFloat(Math.random() * range) ;
 
 
-            //  @TODO 下面抽奖策略，目前比较简陋，待优化
+            //  @TODO 下面抽奖策略，不符合 mooc 实情，因为 mooc 需求不明确，待优化
             if(randomNum < 5 && randomNum >= 0) {
              this.luckyAndGold = 1
             } else if( ( randomNum >= 20 && randomNum < 25 ) ||
