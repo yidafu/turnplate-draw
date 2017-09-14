@@ -14,21 +14,18 @@
 ## 用法
 
 ```javascript
-var listOfItem = [
-    itemName: probability,
-    ...
+var id = 'turnplateContainer'
+var data = [{"name":"一等奖",
+                   "num":"5",
+                   "probability":"5"，
+                   },
+                   ...
 ];
 
-var config = {
-    bgColor: [...],
-    count: 10;// 转盘块数
-    ...
-}
-
 var tp . turnplate({
-    listOfItem,
-    config
+    id,
+    data
 });
 
-tp.drew();
+tp.draw();
 ```
