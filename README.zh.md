@@ -8,12 +8,17 @@
 
 ## 特色
 +   能够自动化生成转盘，通过参数`data`.这意味着你不需要浪费时间去重复编码。
-+   这个项目模仿了jQuery。所以，你你能够无`new`地使用它。
++   转盘是通过 DOM 操作自动生成的，你不必层层嵌套的 div，只需要传入一个容器 ID 就够了。
++   这个项目模仿了jQuery。所以，你你能够无`new`地使用它。
 
 
 ## 用法
 
-```javascript
+```html
+
+<div id="turnplateContainer"></div>
+
+<script>
 var id = 'turnplateContainer'
 var data = [{"name":"一等奖",
                    "num":"5",
@@ -37,11 +42,11 @@ function func() {
         }
     })
 }
-var tp . turnplate({
-    id,
-    data,
-    func
-});
+var tp . turnplate({id,
+                    data,
+                    func
+                  });
 
 tp.draw();
+</sctipt>
 ```
