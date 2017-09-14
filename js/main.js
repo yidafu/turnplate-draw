@@ -81,7 +81,7 @@
          * @param  {Array}  [data=[]]                 抽奖数据
          * @return {void}
          */
-        init: function ( id = 'turnplateContainer', data = [] ) {
+        init: function ( id = 'turnplateContainer', data = [], func ) {
             /**
              * 最外层容器
              * @type {Object}
@@ -101,6 +101,8 @@
              */
             turnplate.count = this.count = 12;
             turnplate.data = this.data = data;
+
+            turnplate.cb = this.bc = func;
             return this;
         },
         /**
@@ -250,7 +252,6 @@
           */
          fisrtRotationForce : function() {
              var luckyAndGold = this.godGiveYouLuckyAndGold();
-             console.log(luckyAndGold);
              var winning = this.winning;
              if (luckyAndGold == null ) {
                  return;
@@ -271,6 +272,7 @@
                     alert('三等奖');
                 }
                 // @TODO 这里发送 ajax 请求
+                turnplate.cb();
                 console.log('这里是发给后端的数据：||| ' + winning + ' |||');
             }, 6000)
              this.turnplate.style.transform = 'rotate(' + this.degree + 'deg)';

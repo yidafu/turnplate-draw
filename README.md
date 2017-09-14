@@ -16,7 +16,6 @@ This project is to make a turnplate for lucky draw.
 my goal is that you can simplely using it as can as posible. **like:**
 
 ```javascript
-```javascript
 var id = 'turnplateContainer';
 var data = [{"name":"一等奖",
                    "num":"5",

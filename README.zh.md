@@ -21,10 +21,26 @@ var data = [{"name":"一等奖",
                    },
                    ...
 ];
-
+// 这个函数将在转盘旋转结束以后执行主要用于回传结果数据。
+// 示例如：
+function func() {
+    $.ajax({
+        url : '',
+        data: turnplate.fn.winning,
+        type: 'POST',
+        dataType: 'json',
+        success: function () {
+            // @TODO
+        },
+        error: function () {
+            // @TODO
+        }
+    })
+}
 var tp . turnplate({
     id,
-    data
+    data,
+    func
 });
 
 tp.draw();
