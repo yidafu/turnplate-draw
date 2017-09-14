@@ -156,11 +156,11 @@
 
                 // @TODO 在这里填充数据
                 if ( i == 0 ) {
-                    div.firstChild.innerHTML = this.data[0].name + ( 12 - i);
+                    div.firstChild.innerHTML = this.data[0].name ;
                 } else if( i % 2 == 0 ) {
-                    div.firstChild.innerHTML = this.data[1].name + (12 - i);
+                    div.firstChild.innerHTML = this.data[1].name ;
                 } else {
-                    div.firstChild.innerHTML = this.data[2].name + (12 - i);
+                    div.firstChild.innerHTML = this.data[2].name ;
                 }
                 // div.childNodes[0].src = this.imgs[i];
 
@@ -250,12 +250,13 @@
           */
          fisrtRotationForce : function() {
              var luckyAndGold = this.godGiveYouLuckyAndGold();
+             console.log(luckyAndGold);
              var winning = this.winning;
              if (luckyAndGold == null ) {
                  return;
              }
-             this.degree = 3600 + ( ( 360 / 12 ) * luckyAndGold );
-             
+             this.degree = 7200 + ( ( 360 / 12 ) * luckyAndGold );
+
              this.turnplate.previousSibling.childNodes[1].setAttribute( 'onclick', true );
              /**
               * 参见：<a herf="http://www.cnblogs.com/leon2016/p/5932061.html">链接<a>
