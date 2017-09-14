@@ -16,21 +16,19 @@ This project is to make a turnplate for lucky draw.
 my goal is that you can simplely using it as can as posible. **like:**
 
 ```javascript
-var listOfItem = [
-    itemName: probability,
-    ...
+```javascript
+var id = 'turnplateContainer';
+var data = [{"name":"一等奖",
+                   "num":"5",
+                   "probability":"5"，
+                   },
+                   ...
 ];
 
-var config = {
-    bgColor: [...],
-    count: 10;// 转盘块数
-    ...
-}
-
 var tp . turnplate({
-    listOfItem,
-    config
+    id,
+    data
 });
 
-tp.drew();
+tp.draw();
 ```
